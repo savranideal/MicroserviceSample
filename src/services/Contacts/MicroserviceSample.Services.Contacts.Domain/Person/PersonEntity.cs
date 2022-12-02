@@ -28,6 +28,8 @@ namespace MicroserviceSample.Services.Contacts.Domain.Person
         public string LastName { get; private set; }
 
         public string CompanyName { get; private set; }
+         
+        public virtual ICollection<PersonContactEntity> Contacts { get; private set; }
 
         public static PersonEntity Create(Guid id, string firstname, string lastname, string companyName)
         {

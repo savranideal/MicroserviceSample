@@ -10,8 +10,8 @@ namespace MicroserviceSample.Services.Contacts.Domain.Person
         }
         public Guid Id { get; private set; }
         public Guid PersonId { get; private set; }
-
         public PersonContactType Type { get; private set; }
         public string Value { get; set; }
+        public virtual PersonEntity Person { get; private set; }
     }
 }

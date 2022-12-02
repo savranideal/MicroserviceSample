@@ -8,6 +8,7 @@ namespace MicroserviceSample.Services.Contacts.Domain.Person
 {
     public interface IPersonRepository
     {
-        Task AddAsync(PersonEntity meeting);
+        Task AddAsync(PersonEntity person);
+        void Add(PersonEntity person);
     }
 }
