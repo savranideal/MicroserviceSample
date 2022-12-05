@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace MicroserviceSample.BuildingBlocks.Application.CORS.Commands;
+﻿namespace MicroserviceSample.BuildingBlocks.Application.CORS.Commands;
 
 public interface ICommandsScheduler
 {

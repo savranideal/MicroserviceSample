@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -6,13 +6,44 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>5fd1ae9e-4ef8-46f9-9b8f-0b285146e547</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileContext>..\..\..\..</DockerfileContext>
+     <DockerfileContext>..\..\..\..</DockerfileContext>
+    <DockerComposeProjectPath>..\..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>1701;1702;CS1591</NoWarn>
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup> 
+    <PackageReference Include="DotNetCore.CAP.Dashboard" Version="7.0.0" /> 
+    <PackageReference Include="DotNetCore.CAP.PostgreSql" Version="7.0.0" /> 
+    <PackageReference Include="DotNetCore.CAP.RabbitMQ" Version="7.0.0" /> 
+    <PackageReference Include="MediatR" Version="11.1.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="DotNetCore.CAP" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="7.0.0" />  
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference> 
+    <PackageReference Include="Hellang.Middleware.ProblemDetails" Version="6.5.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+    <PackageReference Include="Polly.Extensions.Http" Version="3.0.0" />
+    <PackageReference Include="Poly" Version="1.0.1" />
+    <PackageReference Include="Serilog" Version="2.12.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\building-blocks\MicroserviceSample.BuildingBlocks.Application\MicroserviceSample.BuildingBlocks.Application.csproj" />
+    <ProjectReference Include="..\..\..\building-blocks\MicroserviceSample.BuildingBlocks.Domain\MicroserviceSample.BuildingBlocks.Domain.csproj" />
+    <ProjectReference Include="..\..\..\building-blocks\MicroserviceSample.BuildingBlocks.Infrastructure\MicroserviceSample.BuildingBlocks.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -15,4 +15,10 @@ services:
     build:
       context: .
       dockerfile: src/services/Contacts/MicroserviceSample.Services.Contacts.API/Dockerfile
+
+  microservicesample-reports-api:
+    image: ${DOCKER:-microservicesample}/reports.api:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: src/services/reports/MicroserviceSample.Services.Reports.API/Dockerfile
        

@@ -1,5 +1,5 @@
 ﻿using System.Data;
-
+using MicroserviceSample.BuildingBlocks.Infrastructure.EventBus;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Logging;
@@ -10,11 +10,14 @@ namespace MicroserviceSample.BuildingBlocks.Infrastructure.Persistence
                 where TDbContext : DbContext
     {
         private readonly TDbContext _context;
+        private readonly IDomainEventsDispatcher _domainEventsDispatcher;
         private readonly ILogger<EfUnitOfWork<TDbContext>> _logger;
         private IDbContextTransaction? _currentTransaction;
-        public EfUnitOfWork(TDbContext context, ILogger<EfUnitOfWork<TDbContext>> logger)
+
+        public EfUnitOfWork(TDbContext context, IDomainEventsDispatcher domainEventsDispatcher, ILogger<EfUnitOfWork<TDbContext>> logger)
         {
             _context = context;
+            _domainEventsDispatcher = domainEventsDispatcher;
             _logger = logger;
         }
 
@@ -57,6 +60,7 @@ namespace MicroserviceSample.BuildingBlocks.Infrastructure.Persistence
 
         public async Task CommitAsync(CancellationToken cancellationToken = default)
         {
+            await _domainEventsDispatcher.DispatchEventsAsync(DbContext, cancellationToken);
             await DbContext.SaveChangesAsync(cancellationToken);
         }
 

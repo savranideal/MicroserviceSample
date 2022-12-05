@@ -5,6 +5,7 @@ using FluentValidation;
 using MediatR;
 using MicroserviceSample.BuildingBlocks.Application.CORS.Commands;
 using MicroserviceSample.BuildingBlocks.Application.CORS.Queries;
+using MicroserviceSample.BuildingBlocks.Infrastructure.EventBus;
 using MicroserviceSample.Services.Contacts.Application.Contacts.CreateContact;
 using MicroserviceSample.Services.Contacts.Infrastructure.Configuration.Behavior;
 using MicroserviceSample.Services.Contacts.Infrastructure.Configuration.Command;
@@ -35,6 +36,8 @@ namespace MicroserviceSample.Services.Contacts.Infrastructure.Configuration
                         typeof(ValidationBehaviour<,>),
                         typeof(TransactionBehaviour<,>),
                     });
+
+            _services.AddTransient<IDomainEventsDispatcher,DomainEventsDispatcher>();
         }
 
         public void Configure(IServiceProvider serviceProvider)

@@ -33,10 +33,27 @@ services:
     volumes:
         - ./deployments/docker-compose/https:/app/certs
     ports: 
-      - 1001:80 
-      - 1000:443 
+      - 5001:80 
+      - 5000:443 
     depends_on:
       - microservicesample-postgres
+
+  microservicesample-reports-api:
+    container_name: microservicesample.reports.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker 
+      - ASPNETCORE_URLS=https://+:443;http://+:80 
+      - ConnectionStrings__Report=Server=host.docker.internal;Port=5433;Database=microservicesample.report;User Id=contactsa;Password=SplArmonsMAZONTINGEriCi
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=$HTTPS_CERTIFICATE_PASSWORD
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=./certs/${CERTIFICATE_FILE} 
+    volumes:
+        - ./deployments/docker-compose/https:/app/certs
+    ports: 
+      - 7001:80 
+      - 7000:443 
+    depends_on:
+      - microservicesample-postgres
+
   nginx:
     container_name: microservicesample.nginx
     volumes:
@@ -47,4 +64,5 @@ services:
       - 443:443
     depends_on:
       - microservicesample-contacts-api
+      - microservicesample-reports-api
       

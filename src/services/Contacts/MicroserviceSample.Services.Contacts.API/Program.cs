@@ -62,9 +62,8 @@ namespace MicroserviceSample.Services.Contacts.API
 
             builder = AddCustomProblemDetails(builder);
 
-            var app = builder.Build();
-
-
+            WebApplication app = builder.Build();
+             
             if (app.Environment.IsDevelopment() || app.Environment.IsEnvironment("Docker"))
             {
                 app.UseSwagger();

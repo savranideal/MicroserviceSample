@@ -1,8 +1,6 @@
 ﻿using MicroserviceSample.BuildingBlocks.Application.CORS.Commands;
 using MicroserviceSample.Services.Contacts.Domain.Contact;
 
-using Microsoft.EntityFrameworkCore;
-
 namespace MicroserviceSample.Services.Contacts.Application.Contacts.CreateContact
 {
     internal class CreateContactCommandHandler : ICommandHandler<CreateContactCommand, Guid>
@@ -16,7 +14,6 @@ namespace MicroserviceSample.Services.Contacts.Application.Contacts.CreateContac
 
         public Task<Guid> Handle(CreateContactCommand request, CancellationToken cancellationToken)
         {
-
             ContactEntity contactEntity = ContactEntity.Create(request.FirstName, request.LastName, request.Company);
 
             if (request.Communications != null)

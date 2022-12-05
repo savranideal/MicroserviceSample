@@ -39,8 +39,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reports", "Reports", "{C5E3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceSample.Services.Reports.API", "src\services\Reports\MicroserviceSample.Services.Reports.API\MicroserviceSample.Services.Reports.API.csproj", "{8F5BEB31-5046-4B1B-A9E0-168B8FA85E0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceSample.Services.Reports.Domain", "src\services\Reports\MicroserviceSample.Services.Reports.Domain\MicroserviceSample.Services.Reports.Domain.csproj", "{86646056-A68D-46C9-B5F2-6B9FA17698F7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,10 +81,6 @@ Global
 		{8F5BEB31-5046-4B1B-A9E0-168B8FA85E0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F5BEB31-5046-4B1B-A9E0-168B8FA85E0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F5BEB31-5046-4B1B-A9E0-168B8FA85E0B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{86646056-A68D-46C9-B5F2-6B9FA17698F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{86646056-A68D-46C9-B5F2-6B9FA17698F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{86646056-A68D-46C9-B5F2-6B9FA17698F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{86646056-A68D-46C9-B5F2-6B9FA17698F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -104,7 +98,6 @@ Global
 		{593D0A82-B57D-4DD9-B84A-9524E72EBF8F} = {3800FAFF-3D02-451F-818C-4B0E1C35BFB4}
 		{C5E38E07-EF32-41DE-BE44-FBD7554D49A8} = {50C01D13-3BBE-462B-A817-87076FB1C7DA}
 		{8F5BEB31-5046-4B1B-A9E0-168B8FA85E0B} = {C5E38E07-EF32-41DE-BE44-FBD7554D49A8}
-		{86646056-A68D-46C9-B5F2-6B9FA17698F7} = {C5E38E07-EF32-41DE-BE44-FBD7554D49A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4B504398-A773-44F3-89FC-785CE1EA3CAC}

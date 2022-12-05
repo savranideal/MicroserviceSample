@@ -1,7 +1,4 @@
 using System.Net.Mime;
-
-using MediatR;
-
 using MicroserviceSample.BuildingBlocks.Application.CORS.Commands;
 using MicroserviceSample.BuildingBlocks.Application.CORS.Queries;
 using MicroserviceSample.Services.Contacts.API.Features.Contacts.Create;
@@ -11,10 +8,9 @@ using MicroserviceSample.Services.Contacts.Application.Contacts.CreateContactCom
 using MicroserviceSample.Services.Contacts.Application.Contacts.DeleteContact;
 using MicroserviceSample.Services.Contacts.Application.Contacts.DeleteContactCommunication; 
 using MicroserviceSample.Services.Contacts.Application.Contacts.GetContacts;
-
 using Microsoft.AspNetCore.Mvc;
-
 using static Microsoft.AspNetCore.Http.StatusCodes;
+
 namespace MicroserviceSample.Services.Contacts.API.Controllers.v1
 {
     [ApiController]
@@ -59,16 +55,13 @@ namespace MicroserviceSample.Services.Contacts.API.Controllers.v1
         [HttpGet("{id:guid}")]
         [ProducesResponseType(Status200OK)]
         [ProducesResponseType(Status403Forbidden)]
+        [ProducesResponseType(Status404NotFound)]
         public async Task<IActionResult> GetById([FromRoute] Guid id)
         {
             ContactDto response = await _queryProcessor.SendAsync(new GetContactQuery(id));
 
             return Ok(response);
         }
-
-
-
-
 
         /// <summary>
         /// Rehberde kiþi oluþturma
@@ -83,7 +76,7 @@ namespace MicroserviceSample.Services.Contacts.API.Controllers.v1
         [ProducesResponseType(Status403Forbidden)]
         public async Task<IActionResult> Create([FromBody] CreateContactRequest request)
         {
-            Guid response = await _commandProcessor.SendAsync(new CreateContactCommand(request.FirstName, request.LastName, request.Company, request.Communications?.Select(c => (c.Type, c.Value)).ToList()));
+            Guid response = await _commandProcessor.SendAsync(new CreateContactCommand(request.FirstName, request.LastName, request.Company, request.Communications.Select(c => (c.Type, c.Value)).ToList()));
 
             return Created(string.Empty, response);
         }
@@ -105,7 +98,6 @@ namespace MicroserviceSample.Services.Contacts.API.Controllers.v1
 
             return NoContent();
         }
-
 
         /// <summary>
         /// Rehberdeki kiþiye iletiþim bilgisi ekleme

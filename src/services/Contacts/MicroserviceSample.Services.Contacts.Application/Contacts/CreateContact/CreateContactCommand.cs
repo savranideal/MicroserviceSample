@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-using MicroserviceSample.BuildingBlocks.Application.CORS.Commands;
+﻿using MicroserviceSample.BuildingBlocks.Application.CORS.Commands;
 
 namespace MicroserviceSample.Services.Contacts.Application.Contacts.CreateContact
 {
