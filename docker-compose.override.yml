@@ -1,0 +1,50 @@
+version: '3.4'
+
+services:
+         
+  microservicesample-rabitmq:
+    container_name: microservicesample.rabbitmq 
+    environment:
+     default_user: rabbit
+     default_pass: rabbit
+    ports:
+        - 5672:5672
+        - 15672:15672
+
+  microservicesample-postgres:
+    container_name: microservicesample.postgres
+    restart: always
+    volumes:
+        - ./deployments/docker-compose/database/backup:/var/lib/postgresql
+        - ./deployments/docker-compose/database/local-user.sql:/docker-entrypoint-initdb.d/local-user.sql
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+
+  microservicesample-contacts-api:
+    container_name: microservicesample.contacts.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker 
+      - ASPNETCORE_URLS=https://+:443;http://+:80 
+      - ConnectionStrings__Contact=Server=host.docker.internal;Port=5433;Database=microservicesample.contact;User Id=contactsa;Password=SplArmonsMAZONTINGEriCi
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=$HTTPS_CERTIFICATE_PASSWORD
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=./certs/${CERTIFICATE_FILE} 
+    volumes:
+        - ./deployments/docker-compose/https:/app/certs
+    ports: 
+      - 1001:80 
+      - 1000:443 
+    depends_on:
+      - microservicesample-postgres
+  nginx:
+    container_name: microservicesample.nginx
+    volumes:
+      - ./deployments/docker-compose/nginx/nginx.conf:/etc/nginx/nginx.conf 
+      - ./deployments/docker-compose/https:/etc/nginx/microservicesample/certs
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - microservicesample-contacts-api
+      
