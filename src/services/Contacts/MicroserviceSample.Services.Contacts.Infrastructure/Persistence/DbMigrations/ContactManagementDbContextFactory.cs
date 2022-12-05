@@ -13,7 +13,7 @@ namespace RoadRunner.Dock.Infrastructure.Context.DbMigrations
         {
             DbContextOptionsBuilder<ContactManagementDbContext> optionsBuilder = new();
 
-            optionsBuilder.UseNpgsql("Server=localhost;Port=5433;Database=roadrunner.dockmanagement;User Id=roadrunner;Password=*__scotty__*", o => o.MigrationsAssembly("MicroserviceSample.Services.Contacts.Infrastructure"));
+            optionsBuilder.UseNpgsql("Server=localhost;Port=5432;Database=microservicesample.contact;User Id=contactsa;Password=SplArmonsMAZONTINGEriCi", o => o.MigrationsAssembly("MicroserviceSample.Services.Contacts.Infrastructure"));
             return new ContactManagementDbContext(optionsBuilder.Options);
         }
     }

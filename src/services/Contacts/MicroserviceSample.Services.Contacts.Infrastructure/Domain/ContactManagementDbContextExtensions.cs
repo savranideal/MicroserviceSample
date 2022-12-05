@@ -1,7 +1,8 @@
 ﻿using System.Reflection;
 
-using MicroserviceSample.Services.Contacts.Domain.Person;
-using MicroserviceSample.Services.Contacts.Infrastructure.Domain.Person;
+using MicroserviceSample.BuildingBlocks.Infrastructure.Persistence;
+using MicroserviceSample.Services.Contacts.Domain.Contact;
+using MicroserviceSample.Services.Contacts.Infrastructure.Domain.Contact;
 using MicroserviceSample.Services.Contacts.Infrastructure.Persistence;
 
 using Microsoft.EntityFrameworkCore;
@@ -12,14 +13,14 @@ namespace MicroserviceSample.Services.Contacts.Infrastructure.Domain
 {
     public static class ContactManagementDbContextExtensions
     {
-        private const string DockManagement = "DockManagement";
+        private const string ContactManagement = "Contact";
 
-        public static void RegisterDbContext(IServiceCollection services,IConfiguration configuration,bool isProduction)
-        { 
+        public static void RegisterDbContext(IServiceCollection services, IConfiguration configuration, bool isProduction)
+        {
             services.AddDbContextPool<ContactManagementDbContext>((dbContextOptions) =>
             {
                 dbContextOptions
-                    .UseNpgsql(configuration.GetConnectionString(DockManagement), opts =>
+                    .UseNpgsql(configuration.GetConnectionString(ContactManagement), opts =>
                     {
                         opts.MigrationsAssembly(Assembly.GetExecutingAssembly().GetName().Name);
                         opts.EnableRetryOnFailure(15, TimeSpan.FromSeconds(30), null);
@@ -31,8 +32,9 @@ namespace MicroserviceSample.Services.Contacts.Infrastructure.Domain
                 }
             });
 
-            services.AddScoped<ContactManagementDbContext>();  
-            services.AddScoped<IPersonRepository,PersonRepository>();
+            services.AddScoped<ContactManagementDbContext>();
+            services.AddScoped<IContactRepository, ContactRepository>();
+            services.AddScoped<IUnitOfWork, ContactUnitOfWork>();
         }
     }
 }

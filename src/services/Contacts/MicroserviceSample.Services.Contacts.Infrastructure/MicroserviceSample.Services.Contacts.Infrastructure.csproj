@@ -7,13 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="11.1.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MicroserviceSample.Services.Contacts.Domain\MicroserviceSample.Services.Contacts.Domain.csproj" />
+    <ProjectReference Include="..\..\..\building-blocks\MicroserviceSample.BuildingBlocks.Infrastructure\MicroserviceSample.BuildingBlocks.Infrastructure.csproj" />
+    <ProjectReference Include="..\MicroserviceSample.Services.Contacts.Application\MicroserviceSample.Services.Contacts.Application.csproj" />
   </ItemGroup>
 
 </Project>

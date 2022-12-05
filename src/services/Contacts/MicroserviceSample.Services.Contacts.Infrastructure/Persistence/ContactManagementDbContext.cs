@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
-using MicroserviceSample.Services.Contacts.Domain.Person;
-using MicroserviceSample.Services.Contacts.Infrastructure.Domain.Person;
+﻿using MicroserviceSample.Services.Contacts.Domain.Contact;
+using MicroserviceSample.Services.Contacts.Infrastructure.Domain.Contact;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -19,15 +12,15 @@ namespace MicroserviceSample.Services.Contacts.Infrastructure.Persistence
 
         }
 
-        public DbSet<PersonEntity> Persons { get; set; }
-        public DbSet<PersonContactEntity> PersonContacts { get; set; }
+        public DbSet<ContactEntity> Contacts { get; set; }
+        public DbSet<ContactCommunicationEntity> ContactContacts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.ApplyConfiguration(new PersonEntityConfiguration());
-            modelBuilder.ApplyConfiguration(new PersonContactEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new ContactEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new ContactCommunicationEntityConfiguration());
 
         }
     }
