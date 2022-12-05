@@ -1,0 +1,17 @@
+#Create with pass
+
+openssl req -newkey rsa:2048 -keyout microservicesample.local.key -x509 -days 365  -out microservicesample.local.pem   -out microservicesample.local.crt  -addext "subjectAltName=DNS:*.local.microservicesample.com,DNS:localhost"
+
+#Create without pass
+openssl req -newkey rsa:2048 -nodes -keyout microservicesample.local.key.pem -x509 -days 365 -out microservicesample.local.crt  -addext "subjectAltName=DNS:*.local.microservicesample.com,DNS:localhost"
+
+
+#export
+
+openssl pkcs12 –export –out microservicesample.local.pfx –inkey microservicesample.local.key –in microservicesample.local.pem
+
+openssl pkcs12 -export -inkey microservicesample.local.key  -in microservicesample.local.crt  -out microservicesample.local.pfx
+
+openssl pkcs12 -export -inkey microservicesample.local.key.pem  -in microservicesample.local.crt  -out microservicesample.local.pfx
+
+dotnet dev-certs https --trust
