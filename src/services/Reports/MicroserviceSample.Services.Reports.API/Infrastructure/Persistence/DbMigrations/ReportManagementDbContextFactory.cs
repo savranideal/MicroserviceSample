@@ -1,12 +1,11 @@
-﻿using MicroserviceSample.Services.Reports.API.Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace RoadRunner.Dock.Infrastructure.Context.DbMigrations
+namespace MicroserviceSample.Services.Reports.API.Infrastructure.Persistence.DbMigrations
 {
     public class ReportManagementDbContextFactory : IDesignTimeDbContextFactory<ReportManagementDbContext>
     {
-        // dotnet ef migrations add ReportManagementDbContextFactory --context ReportManagementDbContext --project src/services/Reports/MicroserviceSample.Services.Reports.API --output-dir Infrastructure/Persistence/DbMigrations
+        // dotnet ef migrations add Initial_Create --context ReportManagementDbContext --project src/services/Reports/MicroserviceSample.Services.Reports.API --output-dir Infrastructure/Persistence/DbMigrations
 
         public ReportManagementDbContext CreateDbContext(string[] args)
         {

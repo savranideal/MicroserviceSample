@@ -1,12 +1,12 @@
 using System.Net.Mime;
 using MicroserviceSample.BuildingBlocks.Application.CORS.Commands;
 using MicroserviceSample.BuildingBlocks.Application.CORS.Queries;
-using MicroserviceSample.Services.Contacts.API.Features.Contacts.Create;
+using MicroserviceSample.Services.Contacts.API.Features.Contacts.CreateContact;
 using MicroserviceSample.Services.Contacts.API.Features.Contacts.CreateContactCommunication;
 using MicroserviceSample.Services.Contacts.Application.Contacts.CreateContact;
 using MicroserviceSample.Services.Contacts.Application.Contacts.CreateContactCommunication;
+using MicroserviceSample.Services.Contacts.Application.Contacts.DeleteCommunication;
 using MicroserviceSample.Services.Contacts.Application.Contacts.DeleteContact;
-using MicroserviceSample.Services.Contacts.Application.Contacts.DeleteContactCommunication; 
 using MicroserviceSample.Services.Contacts.Application.Contacts.GetContacts;
 using Microsoft.AspNetCore.Mvc;
 using static Microsoft.AspNetCore.Http.StatusCodes;

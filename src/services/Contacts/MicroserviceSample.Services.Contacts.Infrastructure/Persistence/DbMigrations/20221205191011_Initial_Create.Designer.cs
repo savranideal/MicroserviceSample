@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MicroserviceSample.Services.Contacts.Infrastructure.Persistence.DbMigrations
 {
     [DbContext(typeof(ContactManagementDbContext))]
-    [Migration("20221203222012_ContactManagementDbContextFactory")]
-    partial class ContactManagementDbContextFactory
+    [Migration("20221205191011_Initial_Create")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -71,7 +71,7 @@ namespace MicroserviceSample.Services.Contacts.Infrastructure.Persistence.DbMigr
             modelBuilder.Entity("MicroserviceSample.Services.Contacts.Domain.Contact.ContactCommunicationEntity", b =>
                 {
                     b.HasOne("MicroserviceSample.Services.Contacts.Domain.Contact.ContactEntity", "Contact")
-                        .WithMany("Contacts")
+                        .WithMany("Communications")
                         .HasForeignKey("ContactId");
 
                     b.Navigation("Contact");
@@ -79,7 +79,7 @@ namespace MicroserviceSample.Services.Contacts.Infrastructure.Persistence.DbMigr
 
             modelBuilder.Entity("MicroserviceSample.Services.Contacts.Domain.Contact.ContactEntity", b =>
                 {
-                    b.Navigation("Contacts");
+                    b.Navigation("Communications");
                 });
 #pragma warning restore 612, 618
         }

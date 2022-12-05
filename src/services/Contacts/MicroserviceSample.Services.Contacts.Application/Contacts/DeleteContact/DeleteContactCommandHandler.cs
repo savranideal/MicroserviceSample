@@ -1,5 +1,4 @@
 ﻿using MediatR;
-
 using MicroserviceSample.BuildingBlocks.Application.CORS.Commands;
 using MicroserviceSample.BuildingBlocks.Application.Exception.Types;
 using MicroserviceSample.Services.Contacts.Domain.Contact;
@@ -17,7 +16,6 @@ namespace MicroserviceSample.Services.Contacts.Application.Contacts.DeleteContac
 
         public async Task<Unit> Handle(DeleteContactCommand request, CancellationToken cancellationToken)
         {
-
             ContactEntity contact = await _contactRepository.GetByIdAsync(request.Id, cancellationToken);
             if (contact != null)
             {

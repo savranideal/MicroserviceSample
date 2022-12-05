@@ -19,7 +19,6 @@ namespace MicroserviceSample.Services.Contacts.Application.Contacts.GetContacts
             IEnumerable<ContactEntity> contacts = await _contactRepository.All(cancellationToken);
 
             return contacts.MapToDto();
-
         }
 
         public async Task<ContactDto> Handle(GetContactQuery request, CancellationToken cancellationToken)

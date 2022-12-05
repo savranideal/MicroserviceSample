@@ -1,5 +1,4 @@
 ﻿using DotNetCore.CAP;
-
 using MicroserviceSample.BuildingBlocks.Infrastructure.EventBus;
 
 namespace MicroserviceSample.Services.Reports.API.Infrastructure.EventBus

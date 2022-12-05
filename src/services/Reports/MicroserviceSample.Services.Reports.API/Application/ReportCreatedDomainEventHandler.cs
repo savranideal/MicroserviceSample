@@ -1,5 +1,4 @@
 ﻿using MediatR;
-
 using MicroserviceSample.BuildingBlocks.Infrastructure.EventBus;
 using MicroserviceSample.Services.Reports.API.Application.Events;
 using MicroserviceSample.Services.Reports.API.Infrastructure.Domain.Events;

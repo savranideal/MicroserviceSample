@@ -1,15 +1,8 @@
 ﻿using MediatR;
-
 using MicroserviceSample.BuildingBlocks.Application.CORS.Commands;
 using MicroserviceSample.BuildingBlocks.Infrastructure.Persistence;
 using MicroserviceSample.Services.Contacts.Infrastructure.Configuration.Extensions;
-using MicroserviceSample.Services.Contacts.Infrastructure.Persistence;
-
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Logging;
-
-using Serilog.Context;
 
 namespace MicroserviceSample.Services.Contacts.Infrastructure.Configuration.Behavior
 {
@@ -35,7 +28,6 @@ namespace MicroserviceSample.Services.Contacts.Infrastructure.Configuration.Beha
             await _unitOfWork.CommitAsync(cancellationToken);
 
             return response;
-
         }
     }
 }

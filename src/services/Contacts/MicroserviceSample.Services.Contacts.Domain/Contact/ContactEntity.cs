@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-using MicroserviceSample.BuildingBlocks.Domain;
+﻿using MicroserviceSample.BuildingBlocks.Domain;
 using MicroserviceSample.Services.Contacts.Domain.Contact.Events;
 
 namespace MicroserviceSample.Services.Contacts.Domain.Contact

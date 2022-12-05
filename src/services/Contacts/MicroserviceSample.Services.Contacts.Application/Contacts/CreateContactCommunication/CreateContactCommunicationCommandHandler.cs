@@ -15,7 +15,6 @@ namespace MicroserviceSample.Services.Contacts.Application.Contacts.CreateContac
 
         public async Task<Guid> Handle(CreateContactCommunicationCommand request, CancellationToken cancellationToken)
         {
-
             ContactEntity contact = await _contactRepository.GetByIdAsync(request.ContactId, cancellationToken);
             if (contact == null)
             {

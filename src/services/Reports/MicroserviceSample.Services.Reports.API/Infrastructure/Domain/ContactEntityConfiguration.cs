@@ -1,9 +1,8 @@
 ﻿using MicroserviceSample.Services.Reports.API.Domain;
-
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace MicroserviceSample.Services.Reports.Infrastructure.Domain.Report
+namespace MicroserviceSample.Services.Reports.API.Infrastructure.Domain
 {
     public class ReportEntityConfiguration : IEntityTypeConfiguration<ReportEntity>
     {

@@ -1,6 +1,4 @@
-﻿using MicroserviceSample.Services.Reports.API.Domain;
-
-namespace MicroserviceSample.Services.Reports.Domain;
+﻿namespace MicroserviceSample.Services.Reports.API.Domain;
 
 public interface IReportRepository
 {

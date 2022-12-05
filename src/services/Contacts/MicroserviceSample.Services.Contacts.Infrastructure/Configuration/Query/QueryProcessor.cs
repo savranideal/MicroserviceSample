@@ -1,8 +1,7 @@
 ﻿using MediatR;
-
 using MicroserviceSample.BuildingBlocks.Application.CORS.Queries;
 
-namespace MicroserviceSample.Services.Contacts.Infrastructure.Configuration.Command;
+namespace MicroserviceSample.Services.Contacts.Infrastructure.Configuration.Query;
 
 internal class QueryProcessor : IQueryProcessor
 {

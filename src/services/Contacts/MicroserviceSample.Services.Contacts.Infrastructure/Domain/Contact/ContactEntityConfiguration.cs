@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using MicroserviceSample.Services.Contacts.Domain.Contact;
-
+﻿using MicroserviceSample.Services.Contacts.Domain.Contact;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -25,8 +18,7 @@ namespace MicroserviceSample.Services.Contacts.Infrastructure.Domain.Contact
                 .HasForeignKey(x => x.ContactId)
                 .IsRequired(false);
 
-            
-            builder.ToTable("Contact");
+             builder.ToTable("Contact");
         }
     }
 }

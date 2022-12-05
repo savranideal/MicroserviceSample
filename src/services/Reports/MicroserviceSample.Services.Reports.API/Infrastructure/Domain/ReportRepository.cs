@@ -1,6 +1,5 @@
 ﻿using MicroserviceSample.Services.Reports.API.Domain;
 using MicroserviceSample.Services.Reports.API.Infrastructure.Persistence;
-using MicroserviceSample.Services.Reports.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace MicroserviceSample.Services.Reports.API.Infrastructure.Domain

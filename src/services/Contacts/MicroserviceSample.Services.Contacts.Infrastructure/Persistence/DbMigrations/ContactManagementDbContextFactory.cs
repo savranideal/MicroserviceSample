@@ -1,9 +1,7 @@
-﻿using MicroserviceSample.Services.Contacts.Infrastructure.Persistence;
-
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace RoadRunner.Dock.Infrastructure.Context.DbMigrations
+namespace MicroserviceSample.Services.Contacts.Infrastructure.Persistence.DbMigrations
 {
     public class ContactManagementDbContextFactory : IDesignTimeDbContextFactory<ContactManagementDbContext>
     {

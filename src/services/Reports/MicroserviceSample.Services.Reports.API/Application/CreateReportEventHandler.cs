@@ -1,5 +1,4 @@
 ﻿using DotNetCore.CAP;
-
 using MicroserviceSample.Services.Reports.API.Application.Events;
 using MicroserviceSample.Services.Reports.API.Application.Services;
 

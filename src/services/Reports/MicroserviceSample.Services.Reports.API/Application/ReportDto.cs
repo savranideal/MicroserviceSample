@@ -7,5 +7,4 @@
         public string Status { get; set; }
         public string Path { get; set; }
     }
-
 }

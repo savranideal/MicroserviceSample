@@ -68,7 +68,7 @@ namespace MicroserviceSample.Services.Contacts.Infrastructure.Persistence.DbMigr
             modelBuilder.Entity("MicroserviceSample.Services.Contacts.Domain.Contact.ContactCommunicationEntity", b =>
                 {
                     b.HasOne("MicroserviceSample.Services.Contacts.Domain.Contact.ContactEntity", "Contact")
-                        .WithMany("Contacts")
+                        .WithMany("Communications")
                         .HasForeignKey("ContactId");
 
                     b.Navigation("Contact");
@@ -76,7 +76,7 @@ namespace MicroserviceSample.Services.Contacts.Infrastructure.Persistence.DbMigr
 
             modelBuilder.Entity("MicroserviceSample.Services.Contacts.Domain.Contact.ContactEntity", b =>
                 {
-                    b.Navigation("Contacts");
+                    b.Navigation("Communications");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using MicroserviceSample.Services.Contacts.Domain.Contact;
+﻿using MicroserviceSample.Services.Contacts.Domain.Contact;
 
 namespace MicroserviceSample.Services.Contacts.Application.Contacts.GetContacts.Mappings
 {

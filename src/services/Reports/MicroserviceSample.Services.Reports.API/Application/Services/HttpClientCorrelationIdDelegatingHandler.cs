@@ -3,6 +3,7 @@
     public class HttpClientCorrelationIdDelegatingHandler : DelegatingHandler
     {
         private const string CorrelationIdHeaderName = "X-Correlation-ID";
+
         public HttpClientCorrelationIdDelegatingHandler()
         {
         }

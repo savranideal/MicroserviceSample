@@ -4,7 +4,6 @@ namespace MicroserviceSample.Services.Reports.API.Application.Mappings
 {
     internal static class ReportDtoMapper
     {
-
         public static ReportDto[] MapToDto(this IEnumerable<ReportEntity> source)
         {
             return source.Select(x => x.MapToDto()).ToArray();

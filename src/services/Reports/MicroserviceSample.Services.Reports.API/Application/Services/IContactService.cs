@@ -2,6 +2,6 @@
 {
     public interface IContactService
     {
-        Task<IEnumerable<ContactDto>> All(CancellationToken cancellationToken);
+        Task<IEnumerable<ContactDto>> AllAsync(CancellationToken cancellationToken);
     }
 }

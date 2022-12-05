@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace MicroserviceSample.Services.Contacts.Infrastructure.Persistence.DbMigrations
 {
     /// <inheritdoc />
-    public partial class ContactManagementDbContextFactory : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

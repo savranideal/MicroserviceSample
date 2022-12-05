@@ -1,6 +1,4 @@
-﻿using MicroserviceSample.Services.Contacts.API.Features.Contacts.CreateContact;
-
-namespace MicroserviceSample.Services.Contacts.API.Features.Contacts.Create;
+﻿namespace MicroserviceSample.Services.Contacts.API.Features.Contacts.CreateContact;
 
 public class CreateContactRequest
 {

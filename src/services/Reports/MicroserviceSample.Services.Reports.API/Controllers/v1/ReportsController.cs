@@ -1,18 +1,11 @@
 using System.Net.Mime;
-using System.Threading;
-
-using MediatR;
-
 using MicroserviceSample.BuildingBlocks.Infrastructure.Persistence;
 using MicroserviceSample.Services.Reports.API.Application;
 using MicroserviceSample.Services.Reports.API.Application.Mappings;
 using MicroserviceSample.Services.Reports.API.Domain;
-using MicroserviceSample.Services.Reports.API.Infrastructure.Domain;
-using MicroserviceSample.Services.Reports.Domain;
-
 using Microsoft.AspNetCore.Mvc;
-
 using static Microsoft.AspNetCore.Http.StatusCodes;
+
 namespace MicroserviceSample.Services.Reports.API.Controllers.v1;
 
 [ApiController]
@@ -88,6 +81,7 @@ public class ReportsController : ControllerBase
         {
             return BadRequest("there is a exists request.");
         }
+
         ReportEntity entity = new()
         {
             RequestDate = DateTimeExtensions.LocalNow,

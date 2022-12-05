@@ -1,8 +1,6 @@
 ﻿using MediatR;
-
 using MicroserviceSample.BuildingBlocks.Domain;
 using MicroserviceSample.BuildingBlocks.Infrastructure.EventBus;
-
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 

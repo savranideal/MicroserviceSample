@@ -12,7 +12,7 @@ namespace MicroserviceSample.Services.Reports.API.Application.Services
             _httpClient = httpClient;
         }
 
-        public async Task<IEnumerable<ContactDto>> All(CancellationToken cancellationToken)
+        public async Task<IEnumerable<ContactDto>> AllAsync(CancellationToken cancellationToken)
         {
             using HttpResponseMessage httpResponseMessage = await _httpClient.GetAsync(ContactApiUrl, cancellationToken);
 

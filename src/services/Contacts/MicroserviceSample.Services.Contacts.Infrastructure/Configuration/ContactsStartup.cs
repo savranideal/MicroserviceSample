@@ -1,7 +1,5 @@
 ﻿using System.Reflection;
-
 using FluentValidation;
-
 using MediatR;
 using MicroserviceSample.BuildingBlocks.Application.CORS.Commands;
 using MicroserviceSample.BuildingBlocks.Application.CORS.Queries;
@@ -9,6 +7,7 @@ using MicroserviceSample.BuildingBlocks.Infrastructure.EventBus;
 using MicroserviceSample.Services.Contacts.Application.Contacts.CreateContact;
 using MicroserviceSample.Services.Contacts.Infrastructure.Configuration.Behavior;
 using MicroserviceSample.Services.Contacts.Infrastructure.Configuration.Command;
+using MicroserviceSample.Services.Contacts.Infrastructure.Configuration.Query;
 using MicroserviceSample.Services.Contacts.Infrastructure.Domain;
 using MicroserviceSample.Services.Contacts.Infrastructure.Persistence; 
 using Microsoft.EntityFrameworkCore;
