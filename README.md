@@ -43,4 +43,4 @@ docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 * **Contact API -> http://host.docker.internal:5000/swagger/index.html**
 * **Report API -> http://host.docker.internal:7001/swagger/index.html** 
 * **Rabbit Management Dashboard -> http://host.docker.internal:15672**   -- guest/guest 
-* **pgAdmin PostgreSQL -> http://host.docker.internal:5050**   -- contactsa/SplArmonsMAZONTINGEriCi
+* **pgAdmin PostgreSQL -> http://host.docker.internal:5433**   -- contactsa/SplArmonsMAZONTINGEriCi
