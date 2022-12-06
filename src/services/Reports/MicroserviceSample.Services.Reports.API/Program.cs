@@ -14,12 +14,14 @@ using MicroserviceSample.BuildingBlocks.Infrastructure.Persistence;
 using MicroserviceSample.Services.Reports.API.Infrastructure.Domain;
 using MicroserviceSample.Services.Reports.API.Infrastructure.EventBus;
 using System.Reflection;
+using HealthChecks.UI.Client;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MicroserviceSample.Services.Reports.API.Application;
 using MicroserviceSample.Services.Reports.API.Application.Services;
 using MicroserviceSample.Services.Reports.API.Domain;
 using MicroserviceSample.Services.Reports.API.Infrastructure.Persistence;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Polly;
 using Polly.Extensions.Http;
 
@@ -48,6 +50,8 @@ namespace MicroserviceSample.Services.Reports.API
                 options.GroupNameFormat = GroupNameFormat;
                 options.SubstituteApiVersionInUrl = true;
             });
+            builder.Services.AddHealthChecks()
+                .AddCheck("self", () => HealthCheckResult.Healthy());
 
             builder.Services.AddEndpointsApiExplorer();
 
@@ -109,6 +113,17 @@ namespace MicroserviceSample.Services.Reports.API
                      }
                  });
             }
+
+            app.MapHealthChecks("/hc", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
+            {
+                Predicate = _ => true,
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+            });
+
+            app.MapHealthChecks("/liveness", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
+            {
+                Predicate = r => r.Name.Contains("self")
+            });
 
             app.UseAuthorization();
             app.MapControllers();

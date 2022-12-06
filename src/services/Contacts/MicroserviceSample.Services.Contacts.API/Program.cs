@@ -6,9 +6,11 @@ using Serilog.Core;
 using Serilog.Events;
 using Hellang.Middleware.ProblemDetails;
 using FluentValidation;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 namespace MicroserviceSample.Services.Contacts.API
 {
@@ -37,6 +39,9 @@ namespace MicroserviceSample.Services.Contacts.API
                 options.GroupNameFormat = GroupNameFormat;
                 options.SubstituteApiVersionInUrl = true;
             });
+            
+            builder.Services.AddHealthChecks()
+                .AddCheck("self", () => HealthCheckResult.Healthy());
 
             builder.Services.AddEndpointsApiExplorer();
             AddSwagger(builder);
@@ -74,6 +79,17 @@ namespace MicroserviceSample.Services.Contacts.API
                      }
                  }); 
             }
+
+            app.MapHealthChecks("/hc", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
+            {
+                Predicate = _ => true,
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+            });
+
+            app.MapHealthChecks("/liveness", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
+            {
+                Predicate = r => r.Name.Contains("self")
+            });
 
             app.UseStaticFiles();
 
