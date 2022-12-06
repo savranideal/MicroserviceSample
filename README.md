@@ -36,7 +36,7 @@ docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 or run docker-compose project on visual studio.
 
 3. You can **launch microservices** as below urls:
-* **Contact API -> http://localhost:5000/swagger/index.html**
+* **Contact API -> http://localhost:5001/swagger/index.html**
 * **Report API -> http://localhost:7001/swagger/index.html** 
 * **Rabbit Management Dashboard -> http://localhost:15672**   -- guest/guest 
 * **pgAdmin PostgreSQL -> http://localhost:5433**   -- contactsa/SplArmonsMAZONTINGEriCi
