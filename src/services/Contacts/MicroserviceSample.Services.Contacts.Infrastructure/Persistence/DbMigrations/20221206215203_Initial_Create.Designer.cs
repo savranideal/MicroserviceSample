@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MicroserviceSample.Services.Contacts.Infrastructure.Persistence.DbMigrations
 {
     [DbContext(typeof(ContactManagementDbContext))]
-    [Migration("20221205191011_Initial_Create")]
+    [Migration("20221206215203_Initial_Create")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -72,7 +72,8 @@ namespace MicroserviceSample.Services.Contacts.Infrastructure.Persistence.DbMigr
                 {
                     b.HasOne("MicroserviceSample.Services.Contacts.Domain.Contact.ContactEntity", "Contact")
                         .WithMany("Communications")
-                        .HasForeignKey("ContactId");
+                        .HasForeignKey("ContactId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Contact");
                 });

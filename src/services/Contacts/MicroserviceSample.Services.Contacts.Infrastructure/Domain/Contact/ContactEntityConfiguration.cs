@@ -16,7 +16,8 @@ namespace MicroserviceSample.Services.Contacts.Infrastructure.Domain.Contact
              builder.HasMany(x => x.Communications)
                 .WithOne(p => p.Contact)
                 .HasForeignKey(x => x.ContactId)
-                .IsRequired(false);
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Cascade);
 
              builder.ToTable("Contact");
         }

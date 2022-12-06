@@ -22,8 +22,8 @@ namespace MicroserviceSample.Services.Contacts.Infrastructure.Configuration.Beha
         {
             TResponse? response = default;
             var typeName = request.GetGenericTypeName();
-             
-            await next();
+
+            response = await next();
 
             await _unitOfWork.CommitAsync(cancellationToken);
 

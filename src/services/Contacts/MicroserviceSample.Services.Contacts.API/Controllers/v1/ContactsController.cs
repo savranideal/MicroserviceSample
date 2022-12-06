@@ -20,6 +20,8 @@ namespace MicroserviceSample.Services.Contacts.API.Controllers.v1
     public class ContactsController : ControllerBase
     {
         private const string ApiRoute = "api/v{version:apiVersion}/contacts";
+        private const string GetByIdRoute = "api/v1/contacts/{0}";
+        private const string GetByIdCommunicationRoute = "api/v1/contacts/{0}/communications/{1}";
         private readonly ICommandProcessor _commandProcessor;
         private readonly IQueryProcessor _queryProcessor;
 
@@ -78,7 +80,7 @@ namespace MicroserviceSample.Services.Contacts.API.Controllers.v1
         {
             Guid response = await _commandProcessor.SendAsync(new CreateContactCommand(request.FirstName, request.LastName, request.Company, request.Communications.Select(c => (c.Type, c.Value)).ToList()));
 
-            return Created(string.Empty, response);
+            return Created(string.Format(GetByIdRoute,response), response);
         }
 
         /// <summary>
@@ -116,7 +118,7 @@ namespace MicroserviceSample.Services.Contacts.API.Controllers.v1
         {
             Guid response = await _commandProcessor.SendAsync(new CreateContactCommunicationCommand(contactId, request.Type, request.Value));
 
-            return Created(string.Empty, response);
+            return Created(string.Format(GetByIdCommunicationRoute,contactId,response), response);
         }
 
         /// <summary>

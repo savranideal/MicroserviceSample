@@ -40,7 +40,8 @@ namespace MicroserviceSample.Services.Contacts.Infrastructure.Persistence.DbMigr
                         name: "FK_ContactCommunication_Contact_ContactId",
                         column: x => x.ContactId,
                         principalTable: "Contact",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
