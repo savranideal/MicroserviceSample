@@ -2,7 +2,7 @@
 
 namespace MicroserviceSample.Services.Contacts.Application.Contacts.CreateContactCommunication
 {
-    internal class CreateContactCommunicationCommandValidator : AbstractValidator<CreateContactCommunicationCommand>
+    public class CreateContactCommunicationCommandValidator : AbstractValidator<CreateContactCommunicationCommand>
     {
         public CreateContactCommunicationCommandValidator()
         {

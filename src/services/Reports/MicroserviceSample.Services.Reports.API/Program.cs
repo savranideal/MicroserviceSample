@@ -110,8 +110,6 @@ namespace MicroserviceSample.Services.Reports.API
                  });
             }
 
-            app.UseHttpsRedirection();
-
             app.UseAuthorization();
             app.MapControllers();
 
@@ -229,15 +227,24 @@ namespace MicroserviceSample.Services.Reports.API
 
         private static WebApplicationBuilder AddContactApi(WebApplicationBuilder builder)
         {
+            builder.Services.AddTransient<HttpClientCorrelationIdDelegatingHandler>();
+
             builder.Services.AddHttpClient<IContactService, ContactService>()
                 .ConfigureHttpClient(c =>
                 {
                     c.BaseAddress = new Uri(builder.Configuration.GetSection("Services").GetSection("Contact").Value);
                     c.Timeout = TimeSpan.FromSeconds(30);
                 })
-                .AddHttpMessageHandler<HttpClientCorrelationIdDelegatingHandler>()
-                .AddPolicyHandler(GetRetryPolicy())
-                .AddPolicyHandler(GetCircuitBreakerPolicy());
+                .ConfigurePrimaryHttpMessageHandler(() =>
+                {
+                    return new HttpClientHandler
+                    {
+                        ServerCertificateCustomValidationCallback = (req, cert, chain, sslPolicy) => true,
+                    };
+                })
+                .AddHttpMessageHandler<HttpClientCorrelationIdDelegatingHandler>();
+                //.AddPolicyHandler(GetRetryPolicy())
+                //.AddPolicyHandler(GetCircuitBreakerPolicy());
 
             return builder;
         }
@@ -282,8 +289,8 @@ namespace MicroserviceSample.Services.Reports.API
                     c.ConnectionString = builder.Configuration.GetConnectionString("Report")!;
                 });
 
-                capOptions.FailedRetryCount = 5;
-                capOptions.FailedRetryInterval = 10;
+                capOptions.FailedRetryCount = 1;
+                capOptions.FailedRetryInterval = 30;
                 capOptions.DefaultGroupName = "ReportApi";
                 capOptions.Version = "v1";
             });

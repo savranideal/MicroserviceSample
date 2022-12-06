@@ -1,9 +1,6 @@
-
 using MicroserviceSample.BuildingBlocks.Application.Exception.Types;
 using MicroserviceSample.Services.Contacts.Infrastructure.Configuration;
-
 using Microsoft.AspNetCore.Mvc;
-
 using Serilog;
 using Serilog.Core;
 using Serilog.Events;
@@ -19,6 +16,7 @@ namespace MicroserviceSample.Services.Contacts.API
     {
         private const string GroupNameFormat = "'v'VVV";
         internal static readonly LoggingLevelSwitch MinimumLoggingLevel = new();
+
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -26,7 +24,6 @@ namespace MicroserviceSample.Services.Contacts.API
             // Add services to the container.
 
             builder.Services.AddControllers();
-
 
             builder.Services.AddApiVersioning(opt =>
             {
@@ -77,7 +74,8 @@ namespace MicroserviceSample.Services.Contacts.API
                      }
                  }); 
             }
-            app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
 
             app.UseAuthorization();
 
@@ -88,11 +86,11 @@ namespace MicroserviceSample.Services.Contacts.API
             app.Run();
         }
 
-        public static WebApplicationBuilder AddCustomProblemDetails(WebApplicationBuilder builder)
+        private static WebApplicationBuilder AddCustomProblemDetails(WebApplicationBuilder builder)
         {
             builder.Services.AddProblemDetails(x =>
             {
-                x.ShouldLogUnhandledException = (httpContext, exception, problemDetails) =>
+                x.ShouldLogUnhandledException = (httpContext, _, _) =>
                 {
                     IHostEnvironment env = httpContext.RequestServices.GetRequiredService<IHostEnvironment>();
                     return env.IsDevelopment() || env.IsStaging() || env.IsEnvironment("Docker");
@@ -155,7 +153,7 @@ namespace MicroserviceSample.Services.Contacts.API
             return builder;
         }
 
-        public static WebApplicationBuilder AddSwagger(WebApplicationBuilder builder)
+        private static void AddSwagger(WebApplicationBuilder builder)
         {
             builder.Services.AddSwaggerGen(swaggerGenOptions =>
           {
@@ -193,7 +191,6 @@ namespace MicroserviceSample.Services.Contacts.API
               });
               swaggerGenOptions.DocInclusionPredicate((_, _) => true);
           });
-            return builder;
         }
     }
 }

@@ -5,18 +5,18 @@ using MicroserviceSample.Services.Contacts.Domain.Contact;
 
 namespace MicroserviceSample.Services.Contacts.Application.Contacts.GetContacts
 {
-    internal class GetContactQueryQueryHandler : IQueryHandler<GetContactsQuery, ContactDto[]>, IQueryHandler<GetContactQuery, ContactDto>
+    public class GetContactQueryHandler : IQueryHandler<GetContactsQuery, ContactDto[]>, IQueryHandler<GetContactQuery, ContactDto>
     {
         private readonly IContactRepository _contactRepository;
 
-        public GetContactQueryQueryHandler(IContactRepository contactRepository)
+        public GetContactQueryHandler(IContactRepository contactRepository)
         {
             _contactRepository = contactRepository;
         }
 
         public async Task<ContactDto[]> Handle(GetContactsQuery request, CancellationToken cancellationToken)
         {
-            IEnumerable<ContactEntity> contacts = await _contactRepository.All(cancellationToken);
+            IEnumerable<ContactEntity> contacts = await _contactRepository.AllAsync(cancellationToken);
 
             return contacts.MapToDto();
         }

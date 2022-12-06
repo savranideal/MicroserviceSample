@@ -5,7 +5,7 @@ using MicroserviceSample.Services.Contacts.Domain.Contact;
 
 namespace MicroserviceSample.Services.Contacts.Application.Contacts.DeleteContact
 {
-    internal class DeleteContactCommandHandler : ICommandHandler<DeleteContactCommand, Unit>
+    public class DeleteContactCommandHandler : ICommandHandler<DeleteContactCommand, Unit>
     {
         private readonly IContactRepository _contactRepository;
 

@@ -10,6 +10,8 @@ services:
     ports:
         - 5672:5672
         - 15672:15672
+    networks:
+     - microservice_api
 
   microservicesample-postgres:
     container_name: microservicesample.postgres
@@ -21,6 +23,8 @@ services:
       - "5433:5432"
     environment:
       POSTGRES_PASSWORD: postgres
+    networks:
+     - microservice_api
 
   microservicesample-contacts-api:
     container_name: microservicesample.contacts.api
@@ -30,6 +34,7 @@ services:
       - ConnectionStrings__Contact=Server=host.docker.internal;Port=5433;Database=microservicesample.contact;User Id=contactsa;Password=SplArmonsMAZONTINGEriCi
       - ASPNETCORE_Kestrel__Certificates__Default__Password=$HTTPS_CERTIFICATE_PASSWORD
       - ASPNETCORE_Kestrel__Certificates__Default__Path=./certs/${CERTIFICATE_FILE} 
+      - ASPNETCORE_HTTPS_PORT=5000
     volumes:
         - ./deployments/docker-compose/https:/app/certs
     ports: 
@@ -37,6 +42,8 @@ services:
       - 5000:443 
     depends_on:
       - microservicesample-postgres
+    networks:
+     - microservice_api
 
   microservicesample-reports-api:
     container_name: microservicesample.reports.api
@@ -46,6 +53,8 @@ services:
       - ConnectionStrings__Report=Server=host.docker.internal;Port=5433;Database=microservicesample.report;User Id=contactsa;Password=SplArmonsMAZONTINGEriCi
       - ASPNETCORE_Kestrel__Certificates__Default__Password=$HTTPS_CERTIFICATE_PASSWORD
       - ASPNETCORE_Kestrel__Certificates__Default__Path=./certs/${CERTIFICATE_FILE} 
+      - Cap__RabbitMq__Hostname=host.docker.internal
+      - ASPNETCORE_HTTPS_PORT=7000
     volumes:
         - ./deployments/docker-compose/https:/app/certs
     ports: 
@@ -53,6 +62,8 @@ services:
       - 7000:443 
     depends_on:
       - microservicesample-postgres
+    networks:
+     - microservice_api
 
   nginx:
     container_name: microservicesample.nginx
@@ -65,4 +76,5 @@ services:
     depends_on:
       - microservicesample-contacts-api
       - microservicesample-reports-api
-      
+    networks:
+     - microservice_api

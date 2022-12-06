@@ -1,5 +1,4 @@
 ﻿using MediatR;
-
 using MicroserviceSample.BuildingBlocks.Application.CORS.Commands;
 
 namespace MicroserviceSample.Services.Contacts.Infrastructure.Configuration.Command

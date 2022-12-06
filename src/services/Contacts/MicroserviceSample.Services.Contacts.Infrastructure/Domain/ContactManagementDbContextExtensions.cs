@@ -1,10 +1,8 @@
 ﻿using System.Reflection;
-
 using MicroserviceSample.BuildingBlocks.Infrastructure.Persistence;
 using MicroserviceSample.Services.Contacts.Domain.Contact;
 using MicroserviceSample.Services.Contacts.Infrastructure.Domain.Contact;
 using MicroserviceSample.Services.Contacts.Infrastructure.Persistence;
-
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

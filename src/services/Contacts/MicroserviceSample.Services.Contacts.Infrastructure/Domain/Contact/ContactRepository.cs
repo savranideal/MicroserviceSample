@@ -1,6 +1,5 @@
 ﻿using MicroserviceSample.Services.Contacts.Domain.Contact;
 using MicroserviceSample.Services.Contacts.Infrastructure.Persistence;
-
 using Microsoft.EntityFrameworkCore;
 
 namespace MicroserviceSample.Services.Contacts.Infrastructure.Domain.Contact
@@ -19,9 +18,9 @@ namespace MicroserviceSample.Services.Contacts.Infrastructure.Domain.Contact
             _dbContext.Add(Contact);
         }
 
-        public async Task<IEnumerable<ContactEntity>> All(CancellationToken cancellationToken)
+        public async Task<IEnumerable<ContactEntity>> AllAsync(CancellationToken cancellationToken)
         {
-            return await _dbContext.Contacts.AsNoTracking().ToListAsync(cancellationToken);
+            return await _dbContext.Contacts.Include(c=>c.Communications).AsNoTracking().ToListAsync(cancellationToken);
         }
 
         public async Task<ContactEntity> GetByIdAsync(Guid id, CancellationToken cancellationToken)

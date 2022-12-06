@@ -11,5 +11,4 @@
     {
         TContext Context { get; }
     }
-
 }

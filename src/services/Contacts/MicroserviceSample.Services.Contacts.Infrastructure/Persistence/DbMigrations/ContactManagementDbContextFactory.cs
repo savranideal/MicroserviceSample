@@ -5,7 +5,7 @@ namespace MicroserviceSample.Services.Contacts.Infrastructure.Persistence.DbMigr
 {
     public class ContactManagementDbContextFactory : IDesignTimeDbContextFactory<ContactManagementDbContext>
     {
-        // dotnet ef migrations add ContactManagementDbContextFactory --context ContactManagementDbContext --project src/services/Contacts/MicroserviceSample.Services.Contacts.Infrastructure --output-dir Persistence/DbMigrations
+        // dotnet ef migrations add Initial_Create --context ContactManagementDbContext --project src/services/Contacts/MicroserviceSample.Services.Contacts.Infrastructure --output-dir Persistence/DbMigrations
 
         public ContactManagementDbContext CreateDbContext(string[] args)
         {

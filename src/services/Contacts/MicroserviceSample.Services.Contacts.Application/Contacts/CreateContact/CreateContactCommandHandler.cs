@@ -3,7 +3,7 @@ using MicroserviceSample.Services.Contacts.Domain.Contact;
 
 namespace MicroserviceSample.Services.Contacts.Application.Contacts.CreateContact
 {
-    internal class CreateContactCommandHandler : ICommandHandler<CreateContactCommand, Guid>
+    public class CreateContactCommandHandler : ICommandHandler<CreateContactCommand, Guid>
     {
         private readonly IContactRepository _contactRepository;
 

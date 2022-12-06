@@ -11,15 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contacts", "Contacts", "{74
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B00E87CE-330B-4491-B1F3-1000C019B538}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceSample.Services.Contacts.Application", "src\services\Contacts\MicroserviceSample.Services.Contacts.Application\MicroserviceSample.Services.Contacts.Application.csproj", "{1D07AC9C-DE81-484E-B0B2-C0D9AB0DA0F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroserviceSample.Services.Contacts.Application", "src\services\Contacts\MicroserviceSample.Services.Contacts.Application\MicroserviceSample.Services.Contacts.Application.csproj", "{1D07AC9C-DE81-484E-B0B2-C0D9AB0DA0F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceSample.Services.Contacts.Domain", "src\services\Contacts\MicroserviceSample.Services.Contacts.Domain\MicroserviceSample.Services.Contacts.Domain.csproj", "{4DA23E87-08D0-4BD6-B9FA-5352028CC754}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroserviceSample.Services.Contacts.Domain", "src\services\Contacts\MicroserviceSample.Services.Contacts.Domain\MicroserviceSample.Services.Contacts.Domain.csproj", "{4DA23E87-08D0-4BD6-B9FA-5352028CC754}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceSample.Services.Contacts.Infrastructure", "src\services\Contacts\MicroserviceSample.Services.Contacts.Infrastructure\MicroserviceSample.Services.Contacts.Infrastructure.csproj", "{7569968F-E606-4675-A667-991F13BC6543}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroserviceSample.Services.Contacts.Infrastructure", "src\services\Contacts\MicroserviceSample.Services.Contacts.Infrastructure\MicroserviceSample.Services.Contacts.Infrastructure.csproj", "{7569968F-E606-4675-A667-991F13BC6543}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "building-blocks", "building-blocks", "{3800FAFF-3D02-451F-818C-4B0E1C35BFB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceSample.BuildingBlocks.Domain", "src\building-blocks\MicroserviceSample.BuildingBlocks.Domain\MicroserviceSample.BuildingBlocks.Domain.csproj", "{B9FD5CA4-56A1-4573-AD65-D37ED5931226}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroserviceSample.BuildingBlocks.Domain", "src\building-blocks\MicroserviceSample.BuildingBlocks.Domain\MicroserviceSample.BuildingBlocks.Domain.csproj", "{B9FD5CA4-56A1-4573-AD65-D37ED5931226}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EBC2B267-89DD-4818-882A-53BAA442A816}"
 	ProjectSection(SolutionItems) = preProject
@@ -27,17 +27,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.env = .env
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceSample.Services.Contacts.API", "src\services\Contacts\MicroserviceSample.Services.Contacts.API\MicroserviceSample.Services.Contacts.API.csproj", "{87C7DCBF-4FA0-4523-85C1-7A0FE8B17D4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroserviceSample.Services.Contacts.API", "src\services\Contacts\MicroserviceSample.Services.Contacts.API\MicroserviceSample.Services.Contacts.API.csproj", "{87C7DCBF-4FA0-4523-85C1-7A0FE8B17D4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceSample.BuildingBlocks.Application", "src\building-blocks\MicroserviceSample.BuildingBlocks.Application\MicroserviceSample.BuildingBlocks.Application.csproj", "{FB5730B9-D5F3-49D7-9C89-BE860674C407}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroserviceSample.BuildingBlocks.Application", "src\building-blocks\MicroserviceSample.BuildingBlocks.Application\MicroserviceSample.BuildingBlocks.Application.csproj", "{FB5730B9-D5F3-49D7-9C89-BE860674C407}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{2849E5C0-1CA1-4CB7-9EB5-79CC53BCD08D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceSample.BuildingBlocks.Infrastructure", "src\building-blocks\MicroserviceSample.BuildingBlocks.Infrastructure\MicroserviceSample.BuildingBlocks.Infrastructure.csproj", "{593D0A82-B57D-4DD9-B84A-9524E72EBF8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroserviceSample.BuildingBlocks.Infrastructure", "src\building-blocks\MicroserviceSample.BuildingBlocks.Infrastructure\MicroserviceSample.BuildingBlocks.Infrastructure.csproj", "{593D0A82-B57D-4DD9-B84A-9524E72EBF8F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reports", "Reports", "{C5E38E07-EF32-41DE-BE44-FBD7554D49A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceSample.Services.Reports.API", "src\services\Reports\MicroserviceSample.Services.Reports.API\MicroserviceSample.Services.Reports.API.csproj", "{8F5BEB31-5046-4B1B-A9E0-168B8FA85E0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroserviceSample.Services.Reports.API", "src\services\Reports\MicroserviceSample.Services.Reports.API\MicroserviceSample.Services.Reports.API.csproj", "{8F5BEB31-5046-4B1B-A9E0-168B8FA85E0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E108DBA5-34D4-4A44-BA2B-04CF3DC1A407}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{80DCFD0B-5C36-4963-85EC-91970BA4F10B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Contacts.Domain.UnitTests", "src\services\Contacts\Tests\UnitTests\MicroserviceSample.Services.Contacts.Domain.UnitTests\Services.Contacts.Domain.UnitTests.csproj", "{17E0168C-F5CE-4ADD-9120-EF6A7D1510A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0FD76DA8-5783-42F7-A247-3D1F210C2F17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceSample.BuildingBlocks.UnitTests", "src\building-blocks\Tests\UnitTests\MicroserviceSample.BuildingBlocks.UnitTests\MicroserviceSample.BuildingBlocks.UnitTests.csproj", "{9FE3FFB3-8291-4103-8314-5E51E66D6B07}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services.Contacts.Application.UnitTests", "src\services\Contacts\Tests\UnitTests\MicroserviceSample.Services.Contacts.Application.UnitTests\Services.Contacts.Application.UnitTests.csproj", "{13599088-3C15-445D-9C15-A8A95940628A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +93,18 @@ Global
 		{8F5BEB31-5046-4B1B-A9E0-168B8FA85E0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F5BEB31-5046-4B1B-A9E0-168B8FA85E0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F5BEB31-5046-4B1B-A9E0-168B8FA85E0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17E0168C-F5CE-4ADD-9120-EF6A7D1510A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17E0168C-F5CE-4ADD-9120-EF6A7D1510A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17E0168C-F5CE-4ADD-9120-EF6A7D1510A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17E0168C-F5CE-4ADD-9120-EF6A7D1510A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FE3FFB3-8291-4103-8314-5E51E66D6B07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FE3FFB3-8291-4103-8314-5E51E66D6B07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FE3FFB3-8291-4103-8314-5E51E66D6B07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FE3FFB3-8291-4103-8314-5E51E66D6B07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13599088-3C15-445D-9C15-A8A95940628A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13599088-3C15-445D-9C15-A8A95940628A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13599088-3C15-445D-9C15-A8A95940628A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13599088-3C15-445D-9C15-A8A95940628A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -98,6 +122,12 @@ Global
 		{593D0A82-B57D-4DD9-B84A-9524E72EBF8F} = {3800FAFF-3D02-451F-818C-4B0E1C35BFB4}
 		{C5E38E07-EF32-41DE-BE44-FBD7554D49A8} = {50C01D13-3BBE-462B-A817-87076FB1C7DA}
 		{8F5BEB31-5046-4B1B-A9E0-168B8FA85E0B} = {C5E38E07-EF32-41DE-BE44-FBD7554D49A8}
+		{E108DBA5-34D4-4A44-BA2B-04CF3DC1A407} = {7419E7C6-24F9-4132-9F9D-078EC6F6DD10}
+		{80DCFD0B-5C36-4963-85EC-91970BA4F10B} = {E108DBA5-34D4-4A44-BA2B-04CF3DC1A407}
+		{17E0168C-F5CE-4ADD-9120-EF6A7D1510A9} = {80DCFD0B-5C36-4963-85EC-91970BA4F10B}
+		{0FD76DA8-5783-42F7-A247-3D1F210C2F17} = {3800FAFF-3D02-451F-818C-4B0E1C35BFB4}
+		{9FE3FFB3-8291-4103-8314-5E51E66D6B07} = {0FD76DA8-5783-42F7-A247-3D1F210C2F17}
+		{13599088-3C15-445D-9C15-A8A95940628A} = {80DCFD0B-5C36-4963-85EC-91970BA4F10B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4B504398-A773-44F3-89FC-785CE1EA3CAC}

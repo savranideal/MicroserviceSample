@@ -9,7 +9,6 @@ namespace MicroserviceSample.BuildingBlocks.Infrastructure.Persistence
     public interface IEfUnitOfWork<out TContext> : IEfUnitOfWork
         where TContext : DbContext
     {
-
         TContext DbContext { get; }
     }
 }

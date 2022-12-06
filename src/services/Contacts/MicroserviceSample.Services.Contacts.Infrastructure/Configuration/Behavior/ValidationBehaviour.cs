@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
-
 using MediatR;
 
 namespace MicroserviceSample.Services.Contacts.Infrastructure.Configuration.Behavior

@@ -46,4 +46,8 @@
     <ProjectReference Include="..\..\..\building-blocks\MicroserviceSample.BuildingBlocks.Infrastructure\MicroserviceSample.BuildingBlocks.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Reports\" />
+  </ItemGroup>
+
 </Project>

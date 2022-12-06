@@ -10,13 +10,12 @@
         {
             _domainEvents?.Clear();
         }
-         
-        protected void AddDomainEvent(IDomainEvent domainEvent)
+
+        public void AddDomainEvent(IDomainEvent domainEvent)
         {
             _domainEvents ??= new List<IDomainEvent>();
 
             this._domainEvents.Add(domainEvent);
         }
-
     }
 }

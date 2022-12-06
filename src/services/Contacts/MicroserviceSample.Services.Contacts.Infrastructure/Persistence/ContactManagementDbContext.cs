@@ -1,6 +1,5 @@
 ﻿using MicroserviceSample.Services.Contacts.Domain.Contact;
 using MicroserviceSample.Services.Contacts.Infrastructure.Domain.Contact;
-
 using Microsoft.EntityFrameworkCore;
 
 namespace MicroserviceSample.Services.Contacts.Infrastructure.Persistence
@@ -9,7 +8,6 @@ namespace MicroserviceSample.Services.Contacts.Infrastructure.Persistence
     {
         public ContactManagementDbContext(DbContextOptions<ContactManagementDbContext> dbContextOptions) : base(dbContextOptions)
         {
-
         }
 
         public DbSet<ContactEntity> Contacts { get; set; }
@@ -21,7 +19,6 @@ namespace MicroserviceSample.Services.Contacts.Infrastructure.Persistence
 
             modelBuilder.ApplyConfiguration(new ContactEntityConfiguration());
             modelBuilder.ApplyConfiguration(new ContactCommunicationEntityConfiguration());
-
         }
     }
 }

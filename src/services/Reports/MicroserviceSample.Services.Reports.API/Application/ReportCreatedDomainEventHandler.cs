@@ -16,7 +16,7 @@ namespace MicroserviceSample.Services.Reports.API.Application
 
         public Task Handle(ReportCreatedDomainEvent notification, CancellationToken cancellationToken)
         {
-            return _eventBus.Publish(new ReportCreatedIntegrationEvent(Guid.NewGuid(), DateTimeExtensions.LocalNow, notification.ReportId), cancellationToken);
+            return _eventBus.Publish(new ReportCreatedIntegrationEvent(notification.ReportId), cancellationToken);
         }
     }
 }
