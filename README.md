@@ -1,6 +1,5 @@
  
 #### Contact microservice which includes; 
-* Onion Architecture principle
 * Implementing **DDD, CQRS, and Clean Architecture** with using Best Practices
 * Developing **CQRS with using MediatR, FluentValidation packages**
 * ASP.NET Core Web API application 
